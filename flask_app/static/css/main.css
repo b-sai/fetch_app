@@ -3,12 +3,6 @@ body {
     font-family: 'Arial', sans-serif;
 }
 
-/* .container {
-    background-color: #fff;
-    border-radius: 8px;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-    padding: 20px;
-} */
 
 .form-control {
     border: 1px solid #ccc;
@@ -42,13 +36,10 @@ body {
 }
 .navbar-brand {
     font-size: 2rem;
-    /* Adjust the size as needed */
 }
 
 .bold-and-punchy {
     font-weight: bold;
-    /* Makes text bold */
     font-size: 2.5rem;
-    /* Increases font size */
     color: #000000;
 }
