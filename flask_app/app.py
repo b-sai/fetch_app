@@ -1,15 +1,15 @@
 from flask import Flask, render_template, request
 from sentence_transformers import SentenceTransformer, util
 
-model = SentenceTransformer(os.environ['MODEL_NAME'])
 from json import load
 import pinecone
 from dotenv import load_dotenv
 import os
 
 load_dotenv()
+model = SentenceTransformer(os.environ['MODEL_NAME']) 
 
-pinecone.init(api_key=os.environ['PINECONE_API'], environment=os.environ['PINECONE_ENV'])
+pinecone.init(api_key=os.environ['PINECONE_API'], environment="us-west4-gcp-free")
 
 pinecone.list_indexes()
 pinecone_index = pinecone.Index("fetch")
@@ -36,7 +36,7 @@ def index():
         # Simulated search results
         search_results = [{'title': f'Result {_+1}', 'content': f'{coupons[_]}'} for _ in range(3)]
             # Add more results as needed
-        
+       
     return render_template('index.html', search_results=search_results)
 
 if __name__ == '__main__':
