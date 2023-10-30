@@ -12,12 +12,12 @@ model = SentenceTransformer(os.environ['MODEL_NAME'])
 pinecone.init(api_key=os.environ['PINECONE_API'], environment="us-west4-gcp-free")
 
 pinecone.list_indexes()
-pinecone_index = pinecone.Index("fetch")
+pinecone_index = pinecone.Index(os.environ['IDX_NAME'])
 
 
 app = Flask(__name__)
 
-def nearest_search(user_input: str):
+def nearest_search(user_input):
     res = pinecone_index.query(
     vector=model.encode([user_input]).tolist(),
     top_k=3,
