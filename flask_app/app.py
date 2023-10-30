@@ -34,7 +34,7 @@ def index():
         
         coupons  = nearest_search(query)
         # Simulated search results
-        search_results = [{'title': f'Result {_+1}', 'content': f'{coupons[_]}'} for _ in range(3)]
+        search_results = [{'title': 'Result '+str(i+1), 'content': str(coupons[i])} for i in range(3)]
             # Add more results as needed
        
     return render_template('index.html', search_results=search_results)
